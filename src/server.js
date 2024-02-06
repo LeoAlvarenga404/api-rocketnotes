@@ -1,3 +1,4 @@
+require("dotenv/config")
 require("express-async-errors");
 const migrationsRun = require("./database/sqlite/migrations")
 
@@ -43,7 +44,7 @@ app.use((error, request, response, next) => {
 });
 // tratamento de excessões, verificar se o erro foi do servidor ou do cliente
 
-const PORT = 3333;
+const PORT = process.env.PORT || 3333       ;
 app.listen(PORT, () => console.log(`Server is running on Port ${PORT}`));
 // porta que vai atender as requisições
 
